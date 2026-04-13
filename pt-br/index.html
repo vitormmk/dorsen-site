@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dorsen Tech & Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #06080f;
+  --bg2: #090c15;
+  --bg3: #0d1120;
+  --surface: #101522;
+  --surface2: #151c2e;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.11);
+  --text: #dde3ef;
+  --text2: #7a89a8;
+  --text3: #3d4d66;
+  --blue: #0047AB;
+  --blue-light: #1a5fc2;
+  --blue-dim: rgba(0,71,171,0.12);
+  --font: 'Geist', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.25rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(6,8,15,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+.logo span { color: var(--blue-light); font-weight: 300; }
+nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
+nav a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 400; transition: color 0.2s; }
+nav a:hover { color: var(--text); }
+.nav-cta { background: var(--blue); color: #fff !important; padding: 0.5rem 1.5rem; border-radius: 3px; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-cta:hover { background: var(--blue-light) !important; }
+.lang-switch { font-size: 0.75rem; color: var(--text3); text-decoration: none; border: 1px solid var(--border2); padding: 0.3rem 0.75rem; border-radius: 2px; transition: color 0.2s, border-color 0.2s; }
+.lang-switch:hover { color: var(--text2); border-color: var(--text3); }
+
+/* HERO */
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 9rem 3rem 7rem; max-width: 1200px; margin: 0 auto;
+}
+.hero-eyebrow { font-size: 0.7rem; font-weight: 400; color: var(--text3); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 2rem; }
+.hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 600; line-height: 1.03; letter-spacing: -0.03em; margin-bottom: 2rem; max-width: 820px; }
+.hero h1 .muted { color: var(--text2); font-weight: 300; }
+.hero-desc { font-size: 1rem; color: var(--text2); max-width: 460px; margin-bottom: 3rem; font-weight: 300; line-height: 1.85; }
+.hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.btn-primary { background: var(--blue); color: #fff; font-family: var(--font); font-weight: 500; font-size: 0.875rem; padding: 0.875rem 2.25rem; border-radius: 3px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
+.btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+.btn-outline { color: var(--text2); font-family: var(--font); font-weight: 400; font-size: 0.875rem; text-decoration: none; border: 1px solid var(--border2); padding: 0.875rem 2rem; border-radius: 3px; transition: color 0.2s, border-color 0.2s; }
+.btn-outline:hover { color: var(--text); border-color: var(--text3); }
+
+/* METRICS */
+.metrics { position: relative; z-index: 1; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.5rem 3rem; }
+.metrics-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); }
+.metric { padding: 1.25rem 1.5rem; border-right: 1px solid var(--border); }
+.metric:last-child { border-right: none; }
+.metric-val { font-size: 2rem; font-weight: 600; color: var(--text); display: block; line-height: 1; margin-bottom: 0.45rem; letter-spacing: -0.03em; }
+.metric-val sup { font-size: 0.65rem; color: var(--blue-light); vertical-align: super; margin-left: 1px; font-weight: 400; }
+.metric-label { font-size: 0.72rem; color: var(--text3); line-height: 1.4; font-weight: 400; }
+
+/* BANNER GALLERY */
+.banner-gallery { position: relative; z-index: 1; overflow: hidden; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 0; }
+.banner-gallery-header { max-width: 1200px; margin: 0 auto 2.5rem; padding: 0 3rem; display: flex; justify-content: space-between; align-items: flex-end; }
+.banner-gallery-header h2 { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.02em; }
+.banner-gallery-header p { font-size: 0.82rem; color: var(--text2); font-weight: 300; }
+.gallery-track-wrapper { overflow: hidden; }
+.gallery-track { display: flex; gap: 1.5rem; padding: 0 3rem; animation: scrollTrack 30s linear infinite; width: max-content; }
+.gallery-track:hover { animation-play-state: paused; }
+@keyframes scrollTrack { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.gallery-card {
+  flex-shrink: 0; width: 380px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 4px; overflow: hidden; cursor: pointer; transition: border-color 0.2s;
+}
+.gallery-card:hover { border-color: var(--border2); }
+.gallery-card-img {
+  width: 100%; height: 200px; background: var(--bg3);
+  display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;
+}
+.gallery-card-img .img-placeholder-text { font-size: 0.65rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 400; }
+/* ---- REPLACE: swap out .gallery-card-img with <img src="..." style="width:100%;height:100%;object-fit:cover"> ---- */
+.gallery-card-body { padding: 1.25rem 1.5rem; }
+.gallery-card-badge { font-size: 0.58rem; color: var(--blue-light); background: var(--blue-dim); padding: 0.2rem 0.6rem; border-radius: 2px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; display: inline-block; }
+.gallery-card-body h3 { font-size: 0.95rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 0.35rem; }
+.gallery-card-body p { font-size: 0.78rem; color: var(--text2); font-weight: 300; line-height: 1.6; }
+.gallery-card-cta { display: flex; align-items: center; justify-content: space-between; padding: 0.875rem 1.5rem; border-top: 1px solid var(--border); }
+.gallery-card-cta span { font-size: 0.72rem; color: var(--text3); font-weight: 400; }
+.gallery-card-cta .arrow { color: var(--text3); transition: transform 0.2s, color 0.2s; }
+.gallery-card:hover .gallery-card-cta .arrow { transform: translate(3px, -3px); color: var(--blue-light); }
+
+/* SECTIONS */
+section { position: relative; z-index: 1; padding: 7rem 3rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-tag { font-size: 0.65rem; font-weight: 500; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.25rem; }
+.section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 1rem; }
+.section-title span { color: var(--text2); font-weight: 300; }
+.section-sub { font-size: 0.9rem; color: var(--text2); max-width: 440px; line-height: 1.8; margin-bottom: 4rem; font-weight: 300; }
+
+/* SERVICES */
+#servicos { background: var(--bg); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.service-card { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; transition: border-color 0.2s, background 0.2s; }
+.service-card:hover { border-color: var(--border2); background: var(--surface2); }
+/* ---- EDIT: service title ---- */
+.service-card h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.875rem; letter-spacing: -0.015em; }
+/* ---- EDIT: service description ---- */
+.service-card p { font-size: 0.85rem; color: var(--text2); line-height: 1.78; margin-bottom: 2rem; font-weight: 300; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.chip { font-size: 0.6rem; color: var(--text3); border: 1px solid var(--border); padding: 0.22rem 0.55rem; border-radius: 2px; letter-spacing: 0.04em; font-weight: 400; }
+
+/* PROCESS */
+#processo { background: var(--bg2); }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.process-step { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem 2rem; position: relative; transition: border-color 0.2s; }
+.process-step:hover { border-color: var(--border2); }
+.process-step::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; border-radius: 4px 4px 0 0; transition: background 0.3s; }
+.process-step:hover::before { background: var(--blue); }
+/* ---- EDIT: process step title ---- */
+.process-step h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.75rem; letter-spacing: -0.01em; }
+/* ---- EDIT: process step description ---- */
+.process-step p { font-size: 0.82rem; color: var(--text2); line-height: 1.72; font-weight: 300; }
+
+/* PROJECTS */
+#projetos { background: var(--bg); }
+.projects-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.project-row { background: var(--bg2); display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; padding: 1.75rem 2.5rem; text-decoration: none; color: var(--text); transition: background 0.2s; cursor: pointer; }
+.project-row:hover { background: var(--bg3); }
+/* ---- EDIT: project title ---- */
+.project-row-content h3 { font-size: 1.05rem; font-weight: 500; letter-spacing: -0.015em; margin-bottom: 0.3rem; }
+/* ---- EDIT: project subtitle ---- */
+.project-row-content p { font-size: 0.8rem; color: var(--text2); font-weight: 300; }
+.project-row-meta { display: flex; align-items: center; gap: 1rem; }
+.project-badge { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-light); background: var(--blue-dim); padding: 0.22rem 0.65rem; border-radius: 2px; white-space: nowrap; }
+.project-arrow { color: var(--text3); font-size: 1rem; transition: transform 0.2s, color 0.2s; }
+.project-row:hover .project-arrow { transform: translate(3px, -3px); color: var(--blue-light); }
+
+/* PROJECT DETAIL PAGES */
+.project-page { display: none; position: fixed; inset: 0; z-index: 200; background: var(--bg); overflow-y: auto; }
+.project-page.active { display: block; }
+.project-page-inner { max-width: 960px; margin: 0 auto; padding: 4rem 3rem 6rem; }
+.back-btn { font-size: 0.72rem; font-weight: 400; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; background: none; border: none; cursor: pointer; padding: 0; margin-bottom: 3rem; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+.back-btn:hover { color: var(--text2); }
+.pp-badge { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; color: var(--blue-light); background: var(--blue-dim); padding: 0.28rem 0.75rem; border-radius: 2px; display: inline-block; margin-bottom: 1.5rem; text-transform: uppercase; }
+/* ---- EDIT: project page title ---- */
+.pp-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+/* ---- EDIT: project page description ---- */
+.pp-desc { font-size: 0.98rem; color: var(--text2); max-width: 640px; line-height: 1.85; font-weight: 300; margin-bottom: 3rem; border-left: 2px solid var(--blue); padding-left: 1.5rem; }
+.pp-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-bottom: 3rem; }
+.pp-metric { background: var(--surface); padding: 1.75rem 1.5rem; }
+/* ---- EDIT: metric value ---- */
+.pp-metric-val { font-size: 2rem; font-weight: 600; color: var(--text); display: block; line-height: 1; margin-bottom: 0.4rem; letter-spacing: -0.03em; }
+/* ---- EDIT: metric label ---- */
+.pp-metric-label { font-size: 0.7rem; color: var(--text3); font-weight: 400; line-height: 1.4; }
+
+/* PROJECT FLOATING GALLERY */
+.pp-gallery { margin: 2.5rem 0; }
+.pp-gallery-label { font-size: 0.62rem; font-weight: 500; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+.pp-gallery-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+.pp-gallery-grid .pp-img { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+.pp-gallery-grid .pp-img.main { aspect-ratio: 16/9; }
+.pp-gallery-grid .pp-img.side { aspect-ratio: 4/3; }
+.pp-gallery-grid .pp-img .img-label { font-size: 0.6rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+/* ---- REPLACE: swap .pp-img content with <img src="..." style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"> ---- */
+.pp-gallery-side { display: flex; flex-direction: column; gap: 1rem; }
+.pp-gallery-side .pp-img { flex: 1; }
+
+.pp-section { margin-bottom: 2.5rem; }
+.pp-section-title { font-size: 0.62rem; font-weight: 500; color: var(--text3); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+/* ---- EDIT: project section text ---- */
+.pp-section p { font-size: 0.88rem; color: var(--text2); line-height: 1.8; font-weight: 300; }
+.pp-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+
+/* CONTACT */
+#contato { background: var(--bg2); }
+.contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
+.contact-left p { font-size: 0.9rem; color: var(--text2); line-height: 1.8; margin-bottom: 2.5rem; font-weight: 300; }
+.contact-items { display: flex; flex-direction: column; }
+.contact-item { display: flex; align-items: center; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text2); font-size: 0.875rem; transition: color 0.2s; }
+.contact-item:first-child { border-top: 1px solid var(--border); }
+.contact-item:hover { color: var(--text); }
+.contact-item-key { font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text3); text-transform: uppercase; min-width: 72px; font-weight: 500; }
+form { display: flex; flex-direction: column; gap: 1.15rem; }
+.field { display: flex; flex-direction: column; gap: 0.35rem; }
+label { font-size: 0.6rem; font-weight: 500; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+input, textarea, select { background: var(--surface); border: 1px solid var(--border2); border-radius: 3px; padding: 0.8rem 1rem; color: var(--text); font-family: var(--font); font-size: 0.875rem; font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; appearance: none; }
+input:focus, textarea:focus, select:focus { border-color: var(--blue-light); }
+textarea { resize: vertical; min-height: 110px; }
+::placeholder { color: var(--text3); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.btn-submit { background: var(--blue); color: #fff; font-family: var(--font); font-weight: 500; font-size: 0.875rem; padding: 0.875rem 2.25rem; border: none; border-radius: 3px; cursor: pointer; transition: background 0.2s; align-self: flex-start; }
+.btn-submit:hover { background: var(--blue-light); }
+
+/* FOOTER */
+footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-size: 1rem; font-weight: 600; color: var(--text3); text-decoration: none; letter-spacing: -0.02em; }
+.footer-logo span { font-weight: 300; color: var(--blue-light); }
+footer p { font-size: 0.75rem; color: var(--text3); font-weight: 300; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.hero-eyebrow { animation: fadeUp 0.6s ease both; }
+.hero h1 { animation: fadeUp 0.6s 0.1s ease both; }
+.hero-desc { animation: fadeUp 0.6s 0.2s ease both; }
+.hero-actions { animation: fadeUp 0.6s 0.3s ease both; }
+
+/* RESPONSIVE */
+@media (max-width: 1000px) { .metrics-inner { grid-template-columns: repeat(3, 1fr); } .metric { border-right: none; border-bottom: 1px solid var(--border); } .services-grid { grid-template-columns: 1fr 1fr; } .process-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px) { .services-grid { grid-template-columns: 1fr; } .process-grid { grid-template-columns: 1fr; } .project-row { grid-template-columns: 1fr; } .project-row-meta { justify-content: flex-start; } .contact-layout { grid-template-columns: 1fr; gap: 3rem; } .pp-metrics { grid-template-columns: 1fr 1fr; } .form-row { grid-template-columns: 1fr; } .pp-gallery-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { nav { padding: 1rem 1.5rem; } nav ul { display: none; } .hero { padding: 7rem 1.5rem 5rem; } section { padding: 4.5rem 1.5rem; } .metrics { padding: 2rem 1.5rem; } footer { padding: 1.5rem; } .project-page-inner { padding: 2rem 1.5rem 4rem; } }
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     PROJECT DETAIL PAGES
+     To add images: replace .pp-img div content with:
+     <img src="sua-imagem.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+     ======================================================== -->
+
+<div class="project-page" id="page-chatwoot">
+  <div class="project-page-inner">
+    <button class="back-btn" onclick="closePage()">← Voltar</button>
+    <div class="pp-badge">Atendimento</div>
+    <!-- EDIT: título do projeto -->
+    <h1 class="pp-title">Central de Atendimento<br>WhatsApp</h1>
+    <!-- EDIT: descrição do projeto -->
+    <p class="pp-desc">Implantação do Chatwoot com Evolution API para uma operação de e-commerce. A empresa migrou de respostas manuais via número pessoal para uma central estruturada com histórico unificado, múltiplos agentes e métricas de atendimento.</p>
+
+    <div class="pp-metrics">
+      <!-- EDIT: valores e labels das métricas -->
+      <div class="pp-metric"><span class="pp-metric-val">&lt;18min</span><span class="pp-metric-label">Tempo médio de resposta após implantação</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">+62%</span><span class="pp-metric-label">Resolução no primeiro contato</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">R$0</span><span class="pp-metric-label">Custo mensal de licença de software</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">100%</span><span class="pp-metric-label">Uptime nos primeiros 90 dias</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">4</span><span class="pp-metric-label">Agentes operando simultaneamente</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">3h → 18min</span><span class="pp-metric-label">Redução no tempo de resposta</span></div>
+    </div>
+
+    <!-- GALLERY: substitua os .pp-img pelo conteúdo real quando disponível -->
+    <div class="pp-gallery">
+      <div class="pp-gallery-label">Imagens do projeto</div>
+      <div class="pp-gallery-grid">
+        <div class="pp-img main">
+          <!-- REPLACE: <img src="chatwoot-painel.png" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"> -->
+          <span class="img-label">Painel principal — a adicionar</span>
+        </div>
+        <div class="pp-gallery-side">
+          <div class="pp-img side">
+            <!-- REPLACE: <img src="chatwoot-inbox.png" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"> -->
+            <span class="img-label">Inbox — a adicionar</span>
+          </div>
+          <div class="pp-img side">
+            <!-- REPLACE: <img src="chatwoot-metrics.png" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"> -->
+            <span class="img-label">Métricas — a adicionar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pp-section">
+      <div class="pp-section-title">Contexto</div>
+      <!-- EDIT: texto de contexto -->
+      <p>E-commerce com volume crescente de atendimento via WhatsApp. O time respondia por um único número pessoal, sem histórico centralizado e sem métricas — com alto risco de perda de conversas e inconsistência no atendimento.</p>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Escopo da implementação</div>
+      <!-- EDIT: texto de escopo -->
+      <p>Deploy completo do Chatwoot em VPS dedicada via Docker Compose, integração com Evolution API ao número WhatsApp Business, configuração de caixas de entrada por departamento, SSL automatizado via Certbot e configuração do painel de métricas nativo.</p>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Stack</div>
+      <div class="pp-stack">
+        <!-- EDIT: chips de tecnologia -->
+        <span class="chip">Chatwoot</span><span class="chip">Evolution API</span><span class="chip">Docker Compose</span><span class="chip">Nginx</span><span class="chip">Certbot</span><span class="chip">Ubuntu 24.04</span><span class="chip">Hetzner VPS</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="project-page" id="page-infra">
+  <div class="project-page-inner">
+    <button class="back-btn" onclick="closePage()">← Voltar</button>
+    <div class="pp-badge">Infraestrutura</div>
+    <h1 class="pp-title">Rede Corporativa<br>Multi-VLAN</h1>
+    <p class="pp-desc">Reestruturação completa da rede de uma empresa com 40 colaboradores. Segmentação por departamento, VPN corporativa e autenticação Wi-Fi enterprise com credenciais individuais, sem dependência de licenças proprietárias.</p>
+    <div class="pp-metrics">
+      <div class="pp-metric"><span class="pp-metric-val">6</span><span class="pp-metric-label">VLANs segmentadas por departamento</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">40+</span><span class="pp-metric-label">Dispositivos gerenciados</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">99.9%</span><span class="pp-metric-label">Uptime de rede desde implantação</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">0</span><span class="pp-metric-label">Incidentes de segurança pós-implantação</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">R$0</span><span class="pp-metric-label">Custo de licença de autenticação</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">12h</span><span class="pp-metric-label">Tempo total de implantação</span></div>
+    </div>
+    <div class="pp-gallery">
+      <div class="pp-gallery-label">Imagens do projeto</div>
+      <div class="pp-gallery-grid">
+        <div class="pp-img main"><span class="img-label">Diagrama de rede — a adicionar</span></div>
+        <div class="pp-gallery-side">
+          <div class="pp-img side"><span class="img-label">Painel UniFi — a adicionar</span></div>
+          <div class="pp-img side"><span class="img-label">Topologia — a adicionar</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Contexto</div>
+      <p>Empresa com rede plana sem segmentação — câmeras, impressoras e computadores de trabalho na mesma subnet. Sem VPN para acesso remoto e Wi-Fi com senha única compartilhada entre todos os colaboradores.</p>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Escopo da implementação</div>
+      <p>Projeto e implantação de arquitetura multi-VLAN com UniFi, servidor FreeRADIUS integrado ao Google Workspace para autenticação WPA Enterprise e VPN WireGuard com controle de acesso granular por grupo de usuário.</p>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Stack</div>
+      <div class="pp-stack">
+        <span class="chip">UniFi</span><span class="chip">WireGuard</span><span class="chip">FreeRADIUS</span><span class="chip">OpenLDAP</span><span class="chip">Proxmox</span><span class="chip">Google Workspace</span><span class="chip">VLAN 802.1Q</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="project-page" id="page-ai">
+  <div class="project-page-inner">
+    <button class="back-btn" onclick="closePage()">← Voltar</button>
+    <div class="pp-badge">Automação IA</div>
+    <h1 class="pp-title">Triagem de Chamados<br>com IA</h1>
+    <p class="pp-desc">Pipeline de inteligência artificial que recebe chamados por e-mail e WhatsApp, classifica por urgência e categoria, responde automaticamente os casos de baixa complexidade e cria tickets no GLPI para os demais.</p>
+    <div class="pp-metrics">
+      <div class="pp-metric"><span class="pp-metric-val">70%</span><span class="pp-metric-label">Chamados resolvidos sem intervenção humana</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">&lt;2min</span><span class="pp-metric-label">Tempo médio de triagem por chamado</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">R$4.2k</span><span class="pp-metric-label">Economia mensal estimada em suporte</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">98%</span><span class="pp-metric-label">Precisão na classificação por categoria</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">3</span><span class="pp-metric-label">Canais integrados simultaneamente</span></div>
+      <div class="pp-metric"><span class="pp-metric-val">0</span><span class="pp-metric-label">Tickets perdidos desde implantação</span></div>
+    </div>
+    <div class="pp-gallery">
+      <div class="pp-gallery-label">Imagens do projeto</div>
+      <div class="pp-gallery-grid">
+        <div class="pp-img main"><span class="img-label">Diagrama do pipeline — a adicionar</span></div>
+        <div class="pp-gallery-side">
+          <div class="pp-img side"><span class="img-label">GLPI — a adicionar</span></div>
+          <div class="pp-img side"><span class="img-label">Dashboard — a adicionar</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Contexto</div>
+      <p>Time de TI recebia chamados por WhatsApp pessoal, e-mail e formulário sem centralização. Alta taxa de tickets esquecidos, sem priorização por urgência e com tempo de resposta inconsistente entre os canais.</p>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Escopo da implementação</div>
+      <p>Desenvolvimento de agente com Claude API que processa mensagens recebidas, identifica categoria e nível de urgência, gera resposta automatizada para casos recorrentes e cria tickets estruturados no GLPI via API para os casos que demandam atenção humana.</p>
+    </div>
+    <div class="pp-section">
+      <div class="pp-section-title">Stack</div>
+      <div class="pp-stack">
+        <span class="chip">Claude API</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">GLPI</span><span class="chip">Evolution API</span><span class="chip">Google Workspace</span><span class="chip">Docker</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================
+     MAIN SITE
+     ======================================================== -->
+<div id="main-site">
+<nav>
+  <a class="logo" href="#">Dorsen<span>.</span></a>
+  <ul>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#contato" class="nav-cta">Contato</a></li>
+    <li><a href="/en-us" class="lang-switch">EN</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <!-- EDIT: eyebrow label -->
+  <div class="hero-eyebrow">Dorsen Tech &amp; Consulting</div>
+  <!-- EDIT: hero title -->
+  <h1>Infraestrutura.<br><span class="muted">Automação.</span><br>Resultado.</h1>
+  <!-- EDIT: hero description -->
+  <p class="hero-desc">Implementamos e gerenciamos infraestrutura de TI, automações com IA e canais de atendimento para empresas que precisam de tecnologia confiável sem estrutura interna de TI.</p>
+  <div class="hero-actions">
+    <!-- EDIT: CTA button text -->
+    <a href="#contato" class="btn-primary">Solicitar diagnóstico</a>
+    <a href="#servicos" class="btn-outline">Ver serviços</a>
+  </div>
+</div>
+
+<!-- METRICS STRIP -->
+<div class="metrics">
+  <div class="metrics-inner">
+    <!-- EDIT: valores e labels das métricas globais -->
+    <div class="metric"><span class="metric-val">12<sup>+</sup></span><span class="metric-label">Clientes atendidos</span></div>
+    <div class="metric"><span class="metric-val">99.9<sup>%</sup></span><span class="metric-label">Uptime garantido</span></div>
+    <div class="metric"><span class="metric-val">&lt;4<sup>h</sup></span><span class="metric-label">Tempo médio de resposta</span></div>
+    <div class="metric"><span class="metric-val">340<sup>+</sup></span><span class="metric-label">Chamados resolvidos</span></div>
+    <div class="metric"><span class="metric-val">800<sup>h</sup></span><span class="metric-label">Horas de suporte entregues</span></div>
+    <div class="metric"><span class="metric-val">R$0</span><span class="metric-label">Licenças desnecessárias eliminadas</span></div>
+  </div>
+</div>
+
+<!-- BANNER GALLERY -->
+<div class="banner-gallery">
+  <div class="banner-gallery-header">
+    <!-- EDIT: gallery section title and subtitle -->
+    <h2>Implementações em destaque</h2>
+    <p>Clique para ver detalhes</p>
+  </div>
+  <div class="gallery-track-wrapper">
+    <div class="gallery-track">
+      <!-- Card 1 — duplicado no final para loop contínuo -->
+      <div class="gallery-card" onclick="openPage('page-chatwoot')">
+        <div class="gallery-card-img">
+          <!-- REPLACE: <img src="chatwoot-preview.png" style="width:100%;height:100%;object-fit:cover"> -->
+          <span class="img-placeholder-text">Chatwoot — imagem a adicionar</span>
+        </div>
+        <div class="gallery-card-body">
+          <span class="gallery-card-badge">Atendimento</span>
+          <!-- EDIT: card title and description -->
+          <h3>Central WhatsApp para e-commerce</h3>
+          <p>De respostas manuais para central com 4 agentes e SLA de 18 minutos.</p>
+        </div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </div>
+      <div class="gallery-card" onclick="openPage('page-infra')">
+        <div class="gallery-card-img">
+          <!-- REPLACE: <img src="infra-preview.png" style="width:100%;height:100%;object-fit:cover"> -->
+          <span class="img-placeholder-text">Rede — imagem a adicionar</span>
+        </div>
+        <div class="gallery-card-body">
+          <span class="gallery-card-badge">Infraestrutura</span>
+          <h3>Rede corporativa multi-VLAN</h3>
+          <p>40 dispositivos, 6 VLANs, autenticação enterprise. Zero licenças proprietárias.</p>
+        </div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </div>
+      <div class="gallery-card" onclick="openPage('page-ai')">
+        <div class="gallery-card-img">
+          <!-- REPLACE: <img src="ai-preview.png" style="width:100%;height:100%;object-fit:cover"> -->
+          <span class="img-placeholder-text">IA — imagem a adicionar</span>
+        </div>
+        <div class="gallery-card-body">
+          <span class="gallery-card-badge">Automação IA</span>
+          <h3>Triagem de chamados com IA</h3>
+          <p>70% dos chamados resolvidos automaticamente. Economia de R$4.2k/mês.</p>
+        </div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </div>
+      <!-- Duplicatas para loop contínuo -->
+      <div class="gallery-card" onclick="openPage('page-chatwoot')">
+        <div class="gallery-card-img"><span class="img-placeholder-text">Chatwoot — imagem a adicionar</span></div>
+        <div class="gallery-card-body"><span class="gallery-card-badge">Atendimento</span><h3>Central WhatsApp para e-commerce</h3><p>De respostas manuais para central com 4 agentes e SLA de 18 minutos.</p></div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </div>
+      <div class="gallery-card" onclick="openPage('page-infra')">
+        <div class="gallery-card-img"><span class="img-placeholder-text">Rede — imagem a adicionar</span></div>
+        <div class="gallery-card-body"><span class="gallery-card-badge">Infraestrutura</span><h3>Rede corporativa multi-VLAN</h3><p>40 dispositivos, 6 VLANs, autenticação enterprise. Zero licenças proprietárias.</p></div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </div>
+      <div class="gallery-card" onclick="openPage('page-ai')">
+        <div class="gallery-card-img"><span class="img-placeholder-text">IA — imagem a adicionar</span></div>
+        <div class="gallery-card-body"><span class="gallery-card-badge">Automação IA</span><h3>Triagem de chamados com IA</h3><p>70% dos chamados resolvidos automaticamente. Economia de R$4.2k/mês.</p></div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="servicos">
+  <div class="section-inner">
+    <div class="section-tag">Serviços</div>
+    <h2 class="section-title">O que <span>fazemos</span></h2>
+    <p class="section-sub">Soluções sob medida para empresas que precisam de tecnologia sólida sem estrutura interna de TI.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <!-- EDIT: service title -->
+        <h3>Infraestrutura e TI Gerenciada</h3>
+        <!-- EDIT: service description -->
+        <p>Redes, servidores, VPNs e virtualização projetados, implantados e mantidos com documentação completa. Sem dependência de fornecedores únicos.</p>
+        <div class="chips"><span class="chip">Linux</span><span class="chip">Proxmox</span><span class="chip">WireGuard</span><span class="chip">UniFi</span><span class="chip">Docker</span></div>
+      </div>
+      <div class="service-card">
+        <h3>Automação com Inteligência Artificial</h3>
+        <p>Agentes de IA integrados a fluxos operacionais existentes — triagem de chamados, atendimento, geração de documentos e relatórios automáticos.</p>
+        <div class="chips"><span class="chip">Claude API</span><span class="chip">LangChain</span><span class="chip">FastAPI</span><span class="chip">RAG</span><span class="chip">Multi-agent</span></div>
+      </div>
+      <div class="service-card">
+        <h3>Atendimento via WhatsApp</h3>
+        <p>Implantação e gestão do Chatwoot integrado ao WhatsApp Business — central de atendimento profissional, sem mensalidade de licença de software.</p>
+        <div class="chips"><span class="chip">Chatwoot</span><span class="chip">Evolution API</span><span class="chip">WhatsApp</span><span class="chip">Self-hosted</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="processo">
+  <div class="section-inner">
+    <div class="section-tag">Processo</div>
+    <h2 class="section-title">Como <span>trabalhamos</span></h2>
+    <p class="section-sub">Cada etapa é documentada e validada antes de avançar.</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <!-- EDIT: step title and description -->
+        <h3>Diagnóstico</h3>
+        <p>Levantamento do ambiente atual, identificação de gargalos e definição do escopo técnico com documentação inicial.</p>
+      </div>
+      <div class="process-step">
+        <h3>Proposta técnica</h3>
+        <p>Documento com arquitetura proposta, ferramentas, cronograma e investimento necessário. Sem cláusulas de dependência.</p>
+      </div>
+      <div class="process-step">
+        <h3>Implementação</h3>
+        <p>Execução incremental com documentação em tempo real e validação do cliente a cada entrega.</p>
+      </div>
+      <div class="process-step">
+        <h3>Suporte e manutenção</h3>
+        <p>Monitoramento contínuo, aplicação de atualizações e suporte técnico pós-entrega incluso no contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projetos">
+  <div class="section-inner">
+    <div class="section-tag">Projetos</div>
+    <h2 class="section-title">Implementações <span>recentes</span></h2>
+    <p class="section-sub">Selecione um projeto para ver escopo, métricas e detalhes técnicos.</p>
+    <div class="projects-list">
+      <div class="project-row" onclick="openPage('page-chatwoot')">
+        <div class="project-row-content">
+          <!-- EDIT: project row title and subtitle -->
+          <h3>Central WhatsApp para e-commerce</h3>
+          <p>Chatwoot + Evolution API — central com 4 agentes, SLA de 18 minutos e custo zero de licença</p>
+        </div>
+        <div class="project-row-meta"><span class="project-badge">Atendimento</span><span class="project-arrow">↗</span></div>
+      </div>
+      <div class="project-row" onclick="openPage('page-infra')">
+        <div class="project-row-content">
+          <h3>Rede corporativa multi-VLAN</h3>
+          <p>UniFi + FreeRADIUS + WireGuard — 40 dispositivos, 6 VLANs, autenticação enterprise</p>
+        </div>
+        <div class="project-row-meta"><span class="project-badge">Infraestrutura</span><span class="project-arrow">↗</span></div>
+      </div>
+      <div class="project-row" onclick="openPage('page-ai')">
+        <div class="project-row-content">
+          <h3>Triagem de chamados com inteligência artificial</h3>
+          <p>Claude API + GLPI — 70% de resolução automatizada, economia estimada de R$4.2k/mês</p>
+        </div>
+        <div class="project-row-meta"><span class="project-badge">Automação IA</span><span class="project-arrow">↗</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contato">
+  <div class="section-inner">
+    <div class="section-tag">Contato</div>
+    <div class="contact-layout">
+      <div class="contact-left">
+        <h2 class="section-title">Entre em <span>contato</span></h2>
+        <!-- EDIT: contact left description -->
+        <p>Descreva o contexto da sua operação e o problema que precisa resolver. Retornamos com uma análise técnica inicial sem custos ou compromisso.</p>
+        <div class="contact-items">
+          <!-- EDIT: contact links -->
+          <a href="mailto:contato@dorsen.com.br" class="contact-item"><span class="contact-item-key">Email</span>contato@dorsen.com.br</a>
+          <a href="https://wa.me/5551999999999" class="contact-item"><span class="contact-item-key">WhatsApp</span>(51) 9 9999-9999</a>
+          <a href="https://linkedin.com/in/dorsen" class="contact-item"><span class="contact-item-key">LinkedIn</span>linkedin.com/in/dorsen</a>
+          <div class="contact-item"><span class="contact-item-key">Base</span>Brasil</div>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+        <div class="form-row">
+          <div class="field"><label for="nome">Nome</label><input type="text" id="nome" name="nome" placeholder="Seu nome" required></div>
+          <div class="field"><label for="empresa">Empresa</label><input type="text" id="empresa" name="empresa" placeholder="Sua empresa"></div>
+        </div>
+        <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" required></div>
+        <div class="field">
+          <label for="servico">Área de interesse</label>
+          <select id="servico" name="servico">
+            <option value="">Selecione...</option>
+            <option>Infraestrutura e TI gerenciada</option>
+            <option>Automação com IA</option>
+            <option>Atendimento via WhatsApp</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="field"><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" placeholder="Descreva o problema ou a necessidade..."></textarea></div>
+        <button type="submit" class="btn-submit">Enviar mensagem</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a class="footer-logo" href="#">Dorsen<span>.</span></a>
+  <!-- EDIT: footer text -->
+  <p>© 2026 Dorsen Tech &amp; Consulting — Brasil</p>
+</footer>
+</div>
+
+<script>
+function openPage(id) {
+  document.querySelectorAll('.project-page').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  document.getElementById('main-site').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+function closePage() {
+  document.querySelectorAll('.project-page').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('main-site').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
