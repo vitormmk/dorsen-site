@@ -44,11 +44,11 @@ section{position:relative;z-index:1;padding:7rem 3rem}
 .section-tag{font-size:.65rem;font-weight:500;color:var(--text3);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.25rem}
 .section-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem}
 .section-title span{color:var(--text2);font-weight:300}
-.section-sub{font-size:.9rem;color:var(--text2);max-width:480px;line-height:1.8;margin-bottom:3.5rem;font-weight:300}
+.section-sub{font-size:1rem;color:var(--text2);max-width:480px;line-height:1.8;margin-bottom:3.5rem;font-weight:300}
 
 /* CHIPS */
 .chips{display:flex;flex-wrap:wrap;gap:.35rem}
-.chip{font-size:.6rem;color:var(--text3);border:1px solid var(--border);padding:.22rem .55rem;border-radius:2px;letter-spacing:.04em;font-weight:400}
+.chip{font-size:.68rem;color:var(--text3);border:1px solid var(--border);padding:.22rem .55rem;border-radius:2px;letter-spacing:.04em;font-weight:400}
 .badge{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-l);background:var(--blue-d);padding:.22rem .65rem;border-radius:2px}
 
 /* HERO */
@@ -66,7 +66,7 @@ section{position:relative;z-index:1;padding:7rem 3rem}
 .metric:last-child{border-right:none}
 .metric-val{font-size:2rem;font-weight:600;color:var(--text);display:block;line-height:1;margin-bottom:.45rem;letter-spacing:-.03em}
 .metric-val sup{font-size:.65rem;color:var(--blue-l);vertical-align:super;margin-left:1px;font-weight:400}
-.metric-label{font-size:.78rem;color:var(--text3);line-height:1.4;font-weight:400}
+.metric-label{font-size:.88rem;color:var(--text3);line-height:1.4;font-weight:400}
 
 /* GALLERY with scrollbar */
 .banner-gallery{position:relative;z-index:1;overflow:hidden;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:4rem 0}
@@ -97,7 +97,7 @@ section{position:relative;z-index:1;padding:7rem 3rem}
 .service-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2.5rem;transition:border-color .2s,background .2s}
 .service-card:hover{border-color:var(--border2);background:var(--surface2)}
 .service-card h3{font-size:1.05rem;font-weight:500;margin-bottom:.875rem;letter-spacing:-.015em}
-.service-card p{font-size:.85rem;color:var(--text2);line-height:1.78;margin-bottom:2rem;font-weight:300}
+.service-card p{font-size:.95rem;color:var(--text2);line-height:1.78;margin-bottom:2rem;font-weight:300}
 
 /* PROCESS */
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
@@ -113,7 +113,7 @@ section{position:relative;z-index:1;padding:7rem 3rem}
 .project-row{background:var(--bg2);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;padding:1.75rem 2.5rem;text-decoration:none;color:var(--text);transition:background .2s}
 .project-row:hover{background:var(--bg3)}
 .project-row h3{font-size:1.05rem;font-weight:500;letter-spacing:-.015em;margin-bottom:.3rem}
-.project-row p{font-size:.8rem;color:var(--text2);font-weight:300}
+.project-row p{font-size:.875rem;color:var(--text2);font-weight:300}
 .project-row-meta{display:flex;align-items:center;gap:1rem}
 .arrow{color:var(--text3);font-size:1rem;transition:transform .2s,color .2s}
 .project-row:hover .arrow{transform:translate(3px,-3px);color:var(--blue-l)}
