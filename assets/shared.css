@@ -65,7 +65,7 @@ section{position:relative;z-index:1;padding:7rem 3rem}
 .metric{padding:1.25rem 1.5rem;border-right:1px solid var(--border)}
 .metric:last-child{border-right:none}
 .metric-val{font-size:2rem;font-weight:600;color:var(--text);display:block;line-height:1;margin-bottom:.45rem;letter-spacing:-.03em}
-.metric-val sup{font-size:1rem;color:var(--blue-l);vertical-align:super;margin-left:1px;font-weight:400}
+.metric-val sup{font-size:1.4rem;color:var(--blue-l);vertical-align:middle;margin-left:2px;font-weight:500}
 .metric-label{font-size:.88rem;color:var(--text3);line-height:1.4;font-weight:400}
 
 /* GALLERY with scrollbar */
