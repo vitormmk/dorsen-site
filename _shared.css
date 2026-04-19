@@ -1,0 +1,70 @@
+/* ── SHARED DESIGN SYSTEM ── */
+:root {
+  --bg: #06080f;
+  --bg2: #090c15;
+  --bg3: #0d1120;
+  --surface: #101522;
+  --surface2: #151c2e;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.11);
+  --text: #dde3ef;
+  --text2: #7a89a8;
+  --text3: #3d4d66;
+  --blue: #0047AB;
+  --blue-light: #1a5fc2;
+  --blue-dim: rgba(0,71,171,0.12);
+  --font: 'Geist', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(6,8,15,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+.logo { font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+.logo span { color: var(--blue-light); font-weight: 300; }
+nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; }
+nav a { color: var(--text2); text-decoration: none; font-size: 0.875rem; font-weight: 400; transition: color 0.2s; }
+nav a:hover, nav a.active { color: var(--text); }
+.nav-cta { background: var(--blue) !important; color: #fff !important; padding: 0.5rem 1.5rem; border-radius: 3px; font-weight: 500 !important; transition: background 0.2s !important; }
+.nav-cta:hover { background: var(--blue-light) !important; }
+.lang-switch { font-size: 0.75rem; color: var(--text3) !important; border: 1px solid var(--border2); padding: 0.3rem 0.75rem; border-radius: 2px; transition: color 0.2s, border-color 0.2s !important; }
+.lang-switch:hover { color: var(--text2) !important; border-color: var(--text3) !important; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-size: 1rem; font-weight: 600; color: var(--text3); text-decoration: none; letter-spacing: -0.02em; }
+.footer-logo span { font-weight: 300; color: var(--blue-light); }
+footer p { font-size: 0.75rem; color: var(--text3); font-weight: 300; }
+footer nav { position: static; background: none; border: none; padding: 0; backdrop-filter: none; flex-wrap: wrap; gap: 1.5rem; }
+footer nav a { font-size: 0.75rem; color: var(--text3); }
+footer nav a:hover { color: var(--text2); }
+
+/* BUTTONS */
+.btn-primary { background: var(--blue); color: #fff; font-family: var(--font); font-weight: 500; font-size: 0.875rem; padding: 0.875rem 2.25rem; border-radius: 3px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; display: inline-block; }
+.btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+.btn-outline { color: var(--text2); font-family: var(--font); font-weight: 400; font-size: 0.875rem; text-decoration: none; border: 1px solid var(--border2); padding: 0.875rem 2rem; border-radius: 3px; transition: color 0.2s, border-color 0.2s; display: inline-block; }
+.btn-outline:hover { color: var(--text); border-color: var(--text3); }
+
+/* SECTION */
+section { position: relative; z-index: 1; padding: 7rem 3rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-tag { font-size: 0.65rem; font-weight: 500; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.25rem; }
+.section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 1rem; }
+.section-title span { color: var(--text2); font-weight: 300; }
+.section-sub { font-size: 0.9rem; color: var(--text2); max-width: 480px; line-height: 1.8; margin-bottom: 4rem; font-weight: 300; }
+
+/* CHIP */
+.chip { font-size: 0.6rem; color: var(--text3); border: 1px solid var(--border); padding: 0.22rem 0.55rem; border-radius: 2px; letter-spacing: 0.04em; font-weight: 400; }
+.chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+/* BADGE */
+.badge { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-light); background: var(--blue-dim); padding: 0.22rem 0.65rem; border-radius: 2px; }
+
+/* MOBILE */
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.5rem; }
+  nav ul { display: none; }
+  section { padding: 4.5rem 1.5rem; }
+  footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+}
