@@ -9,7 +9,7 @@
   --font:'Geist',system-ui,sans-serif;
 }
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;padding-top:72px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;min-height:100vh}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(6,8,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
@@ -65,7 +65,7 @@ section{position:relative;z-index:1;padding:7rem 3rem}
 .metric{padding:1.25rem 1.5rem;border-right:1px solid var(--border)}
 .metric:last-child{border-right:none}
 .metric-val{font-size:2rem;font-weight:600;color:var(--text);display:block;line-height:1;margin-bottom:.45rem;letter-spacing:-.03em}
-.metric-val sup{font-size:1.4rem;color:var(--blue-l);vertical-align:middle;margin-left:2px;font-weight:500}
+.metric-val sup{font-size:1.4rem;color:var(--blue-l);vertical-align:middle;margin-left:2px;font-weight:600}
 .metric-label{font-size:.88rem;color:var(--text3);line-height:1.4;font-weight:400}
 
 /* GALLERY with scrollbar */
