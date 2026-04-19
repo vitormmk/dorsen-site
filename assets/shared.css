@@ -8,8 +8,8 @@
   --blue:#0047AB;--blue-l:#1a5fc2;--blue-d:rgba(0,71,171,.12);
   --font:'Geist',system-ui,sans-serif;
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;padding-top:72px}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(6,8,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
