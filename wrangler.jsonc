@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dorsen-site",
+  "compatibility_date": "2026-04-13",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "en-us"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
