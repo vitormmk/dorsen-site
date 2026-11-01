@@ -125,10 +125,9 @@
 </section>
 
 <!-- GALERIA DE CASES (Convertida para links <a> acessíveis) -->
-<div class="banner-gallery">
   <div class="banner-gallery-header">
     <h2>Implementações em destaque</h2>
-    <p>Arraste ou use as setas para navegar · Clique para ver a arquitetura</p>
+    <p>Arraste para o lado · Clique para ver a arquitetura</p>
   </div>
   <div class="gallery-scroll-wrap" id="galleryWrap" tabindex="0" aria-label="Galeria de projetos">
     <div class="gallery-track">
@@ -184,7 +183,6 @@
   </nav>
   <p>© 2026 Dorsen Tech &amp; Consulting — Brasil</p>
 </footer>
-
 <script>
   // 1. Controle do Menu Mobile
   const menuBtn = document.getElementById('menu-btn');
@@ -205,12 +203,18 @@
     });
   }
 
-  // 2. Micro-interação Tátil nos Cards (Spotlight + Tilt máximo de 2.5 graus no Desktop)
+  // 2. Micro-interação Tátil em TODOS os Cards (.pillar-card, .gallery-card, .project-row)
   const isTouchDevice = window.matchMedia('(hover: none)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!isTouchDevice && !prefersReducedMotion) {
-    document.querySelectorAll('.pillar-card').forEach(card => {
+    const allCards = document.querySelectorAll('.pillar-card, .gallery-card, .project-row');
+
+    allCards.forEach(card => {
+      // Linhas horizontais longas (.project-row) usam inclinação menor (1.2°) para não distorcer
+      const isRow = card.classList.contains('project-row');
+      const maxTilt = isRow ? 2.4 : 5;
+
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -219,8 +223,8 @@
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
 
-        const rotateY = ((x / rect.width) - 0.5) * 5;
-        const rotateX = ((y / rect.height) - 0.5) * -5;
+        const rotateY = ((x / rect.width) - 0.5) * maxTilt;
+        const rotateX = ((y / rect.height) - 0.5) * -maxTilt;
 
         card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
       });
@@ -231,17 +235,45 @@
     });
   }
 
-  // 3. Galeria Drag-to-scroll + Teclado
+  // 3. Galeria: Arraste com o Mouse (sem clique acidental ao arrastar)
   const wrap = document.getElementById('galleryWrap');
   if (wrap) {
-    let isDown = false, startX, scrollLeft;
-    wrap.addEventListener('mousedown', e => { isDown = true; wrap.style.cursor = 'grabbing'; startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft; });
-    wrap.addEventListener('mouseleave', () => { isDown = false; wrap.style.cursor = 'grab'; });
-    wrap.addEventListener('mouseup', () => { isDown = false; wrap.style.cursor = 'grab'; });
-    wrap.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - wrap.offsetLeft; wrap.scrollLeft = scrollLeft - (x - startX) * 1.5; });
-    wrap.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') wrap.scrollBy({ left: 320, behavior: 'smooth' });
-      if (e.key === 'ArrowLeft') wrap.scrollBy({ left: -320, behavior: 'smooth' });
+    let isDown = false, isDragging = false, startX, scrollLeft;
+
+    wrap.addEventListener('mousedown', e => {
+      isDown = true;
+      isDragging = false;
+      wrap.style.cursor = 'grabbing';
+      startX = e.pageX - wrap.offsetLeft;
+      scrollLeft = wrap.scrollLeft;
+    });
+
+    wrap.addEventListener('mouseleave', () => {
+      isDown = false;
+      wrap.style.cursor = 'grab';
+    });
+
+    wrap.addEventListener('mouseup', () => {
+      isDown = false;
+      wrap.style.cursor = 'grab';
+    });
+
+    wrap.addEventListener('mousemove', e => {
+      if (!isDown) return;
+      const x = e.pageX - wrap.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 5) isDragging = true;
+      if (isDragging) {
+        e.preventDefault();
+        wrap.scrollLeft = scrollLeft - walk;
+      }
+    });
+
+    // Cancela a abertura do link se o usuário estava apenas arrastando a galeria
+    wrap.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', e => {
+        if (isDragging) e.preventDefault();
+      });
     });
   }
 </script>
