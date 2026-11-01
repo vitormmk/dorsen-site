@@ -277,6 +277,9 @@ textarea{resize:vertical;min-height:110px}
 /* ==========================================================================
    2. MICRO-INTERAÇÕES TÁTEIS (Cards dos 3 Pilares e Botão Principal)
    ========================================================================== */
+/* ==========================================================================
+   2. MICRO-INTERAÇÕES TÁTEIS (Todos os Cards do Site)
+   ========================================================================== */
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -284,40 +287,65 @@ textarea{resize:vertical;min-height:110px}
   margin-top: 3rem;
 }
 
-.pillar-card {
+.pillar-card,
+.gallery-card,
+.project-row {
   position: relative;
+  overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease-out;
+}
+
+.pillar-card {
   background: rgba(15, 20, 32, 0.6);
   border: 1px solid var(--border, #1e293b);
   border-radius: 6px;
   padding: 2rem;
-  overflow: hidden;
-  will-change: transform;
-  transform-style: preserve-3d;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Luz radial que segue o mouse (controlada via variáveis CSS no JS) */
-.pillar-card::before {
+/* Luz radial que segue o mouse em todos os cards */
+.pillar-card::before,
+.gallery-card::before,
+.project-row::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
     450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(56, 189, 248, 0.10),
+    rgba(56, 189, 248, 0.12),
     transparent 40%
   );
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  z-index: 1;
 }
 
-.pillar-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+.pillar-card:hover,
+.gallery-card:hover,
+.project-row:hover {
+  border-color: rgba(56, 189, 248, 0.4) !important;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.55);
 }
 
-.pillar-card:hover::before {
+.pillar-card:hover::before,
+.gallery-card:hover::before,
+.project-row:hover::before {
   opacity: 1;
+}
+
+/* Animação da setinha ↗ nos cards inferiores ao passar o mouse */
+.gallery-card .arrow,
+.project-row .arrow {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.gallery-card:hover .arrow,
+.project-row:hover .arrow {
+  transform: translate(3px, -3px);
+  color: #38bdf8;
 }
 
 .pillar-tag {
