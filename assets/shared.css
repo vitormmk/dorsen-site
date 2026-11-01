@@ -195,14 +195,204 @@ textarea{resize:vertical;min-height:110px}
   .values-grid{grid-template-columns:1fr}
   .metrics-inner{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:640px){
-  nav{padding:1rem 1.5rem}
-  nav ul{display:none}
-  section{padding:4.5rem 1.5rem}
-  .hero{padding:7rem 1.5rem 5rem}
-  .metrics{padding:2rem 1.5rem}
-  footer{padding:1.5rem;flex-direction:column;align-items:flex-start}
-  .page-hero{padding:7rem 1.5rem 4rem}
-  .gallery-scroll-wrap{padding:0 1.5rem 1.5rem}
-  .banner-gallery-header{padding:0 1.5rem}
+/* ==========================================================================
+   1. MENU MOBILE (Substitui o nav ul { display: none } antigo)
+   ========================================================================== */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border, #1e293b);
+  border-radius: 4px;
+  color: var(--text, #f8fafc);
+  cursor: pointer;
+  padding: 0.5rem 0.6rem;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  margin: 4px 0;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* Animação do ícone para "X" quando aberto */
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 640px) {
+  nav {
+    padding: 1rem 1.25rem;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(6, 8, 15, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border, #1e293b);
+    z-index: 1000;
+  }
+  nav ul.aberto {
+    display: flex;
+  }
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  nav ul li:last-child {
+    border-bottom: none;
+    padding-top: 0.75rem;
+  }
+  nav > ul > li > a {
+    display: block;
+    padding: 0.85rem 0;
+    font-size: 1rem;
+  }
+  .nav-cta {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   2. MICRO-INTERAÇÕES TÁTEIS (Cards dos 3 Pilares e Botão Principal)
+   ========================================================================== */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.pillar-card {
+  position: relative;
+  background: rgba(15, 20, 32, 0.6);
+  border: 1px solid var(--border, #1e293b);
+  border-radius: 6px;
+  padding: 2rem;
+  overflow: hidden;
+  will-change: transform;
+  transform-style: preserve-3d;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Luz radial que segue o mouse (controlada via variáveis CSS no JS) */
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(56, 189, 248, 0.10),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.pillar-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.pillar-card:hover::before {
+  opacity: 1;
+}
+
+.pillar-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
+  margin-bottom: 0.75rem;
+  display: block;
+  font-family: monospace;
+}
+
+.pillar-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text, #f8fafc);
+}
+
+.pillar-card p {
+  color: var(--text2, #94a3b8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.tech-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.tech-chip {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  color: var(--text2, #94a3b8);
+  font-family: monospace;
+}
+
+/* Botão CTA com preenchimento rápido de sistema */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.15s ease, background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   3. ACESSIBILIDADE E REDUÇÃO DE MOVIMENTO
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
