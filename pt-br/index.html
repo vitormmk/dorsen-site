@@ -3,130 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Início | Dorsen Tech &amp; Consulting</title>
-<meta name="description" content="Infraestrutura de TI, automação com IA e atendimento WhatsApp para empresas. Soluções self-hosted sem licenças desnecessárias.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Dorsen Tech &amp; Consulting — Auditoria, Eficiência e Infraestrutura de TI</title>
+<meta name="description" content="Organizamos a infraestrutura, os acessos, os backups e os gastos com tecnologia da sua empresa. Soluções self-hosted em projeto de valor único, sem mensalidades.">
+<meta name="theme-color" content="#06080f">
+<link rel="canonical" href="https://dorsen.com.br/pt-br/">
+
+<!-- Open Graph / Preview WhatsApp & LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dorsen Tech &amp; Consulting — Sua empresa cresceu. A TI ficou para trás.">
+<meta property="og:description" content="Auditoria de segurança, corte de licenças desnecessárias e automação para negócios que não têm equipe interna de TI.">
+<meta property="og:url" content="https://dorsen.com.br/pt-br/">
+<meta property="og:image" content="https://dorsen.com.br/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/shared.css">
 </head>
-<body><nav>
+<body>
+
+<nav aria-label="Navegação principal">
   <a class="logo" href="/pt-br/">Dorsen<span>.</span></a>
-  <ul>
-    <li><a href="/pt-br/"  class="active">Início</a></li>
+  
+  <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" id="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul id="nav-list">
+    <li><a href="/pt-br/servicos">Como funciona</a></li>
+    <li><a href="/pt-br/projetos">Cases</a></li>
     <li><a href="/pt-br/sobre">Sobre</a></li>
-    <li><a href="/pt-br/servicos">Serviços</a></li>
-    <li><a href="/pt-br/projetos">Projetos</a></li>
-    <li><a href="/pt-br/contato">Contato</a></li>
-    <li><a href="/en-us/" class="lang-switch">EN</a></li>
+    <li><a href="/pt-br/contato" class="nav-cta">Solicitar diagnóstico</a></li>
   </ul>
 </nav>
+
+<!-- HERO DIRETO AO PONTO -->
 <div class="hero fade-up">
-  <div class="hero-eyebrow">Dorsen Tech &amp; Consulting</div>
-  <!-- EDIT: hero title -->
-  <h1>Infraestrutura.<br><span class="muted">Automação.</span><br>Resultado.</h1>
-  <!-- EDIT: hero description -->
-  <p class="hero-desc">Implementamos e gerenciamos infraestrutura de TI, automações com IA e canais de atendimento para empresas que precisam de tecnologia confiável sem estrutura interna de TI.</p>
+  <div class="hero-eyebrow">Auditoria, Eficiência &amp; Infraestrutura Self-Hosted</div>
+  <h1>Sua empresa cresceu.<br><span class="muted">A TI ficou para trás.</span></h1>
+  <p class="hero-desc">Revisamos sua infraestrutura, acessos, backups e custos com tecnologia — organizando tudo para rodar com segurança, sem desperdício de licenças e sem depender de uma equipe interna de TI.</p>
   <div class="hero-actions">
     <a href="/pt-br/contato" class="btn-primary">Solicitar diagnóstico</a>
-    <a href="/pt-br/servicos" class="btn-outline">Ver serviços</a>
+    <a href="#pilares" class="btn-outline">Ver como resolvemos</a>
   </div>
 </div>
 
+<!-- MÉTRICAS DE IMPACTO E MODELO -->
 <div class="metrics">
   <div class="metrics-inner">
-    <!-- EDIT: metric values and labels -->
-    <div class="metric"><span class="metric-val">12<sup>+</sup></span><span class="metric-label">Clientes atendidos</span></div>
-    <div class="metric"><span class="metric-val">99.9<sup>%</sup></span><span class="metric-label">Uptime garantido</span></div>
-    <div class="metric"><span class="metric-val">&lt;4<sup>h</sup></span><span class="metric-label">Tempo médio de resposta</span></div>
-    <div class="metric"><span class="metric-val">340<sup>+</sup></span><span class="metric-label">Chamados resolvidos</span></div>
-    <div class="metric"><span class="metric-val">800<sup>h</sup></span><span class="metric-label">Horas de suporte entregues</span></div>
-    <div class="metric"><span class="metric-val">R$0</span><span class="metric-label">Licenças desnecessárias eliminadas</span></div>
+    <div class="metric"><span class="metric-val">R$0</span><span class="metric-label">Em licenças por assento</span></div>
+    <div class="metric"><span class="metric-val">100<sup>%</sup></span><span class="metric-label">Documentado no seu nome</span></div>
+    <div class="metric"><span class="metric-val">99.9<sup>%</sup></span><span class="metric-label">Estabilidade pós-revisão</span></div>
+    <div class="metric"><span class="metric-val">&lt;18<sup>m</sup></span><span class="metric-label">SLA em centrais WhatsApp</span></div>
+    <div class="metric"><span class="metric-val">-70<sup>%</sup></span><span class="metric-label">Retrabalho operacional</span></div>
+    <div class="metric"><span class="metric-val">Único</span><span class="metric-label">Pagamento por projeto fechado</span></div>
   </div>
 </div>
 
-<!-- GALLERY: replace .gallery-card-img span with <img src="..."> when ready -->
-<div class="banner-gallery">
-  <div class="banner-gallery-header">
-    <h2>Implementações em destaque</h2>
-    <p>Arraste para ver mais · Clique para detalhes</p>
-  </div>
-  <div class="gallery-scroll-wrap" id="galleryWrap">
-    <div class="gallery-track">
-      <div class="gallery-card" onclick="location.href='/pt-br/projetos/chatwoot'">
-        <div class="gallery-card-img"><span>Chatwoot — imagem a adicionar</span></div>
-        <div class="gallery-card-body"><span class="badge">Atendimento</span><h3 style="margin-top:.5rem">Central WhatsApp para e-commerce</h3><p>De respostas manuais para central com 4 agentes e SLA de 18 minutos.</p></div>
-        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
-      </div>
-      <div class="gallery-card" onclick="location.href='/pt-br/projetos/rede-vlan'">
-        <div class="gallery-card-img"><span>Rede — imagem a adicionar</span></div>
-        <div class="gallery-card-body"><span class="badge">Infraestrutura</span><h3 style="margin-top:.5rem">Rede corporativa multi-VLAN</h3><p>40 dispositivos, 6 VLANs, autenticação enterprise. Zero licenças proprietárias.</p></div>
-        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
-      </div>
-      <div class="gallery-card" onclick="location.href='/pt-br/projetos/triagem-ia'">
-        <div class="gallery-card-img"><span>IA — imagem a adicionar</span></div>
-        <div class="gallery-card-body"><span class="badge">Automação IA</span><h3 style="margin-top:.5rem">Triagem de chamados com IA</h3><p>70% dos chamados resolvidos automaticamente. Economia de R$4.2k/mês.</p></div>
-        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section>
+<!-- SEÇÃO DOS 3 PILARES (Foco na dor de negócio, ferramentas como meio) -->
+<section id="pilares">
   <div class="section-inner">
-    <div class="section-tag">Serviços</div>
-    <h2 class="section-title">O que <span>fazemos</span></h2>
-    <p class="section-sub">Soluções sob medida para empresas que precisam de tecnologia sólida sem estrutura interna de TI.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Infraestrutura e TI Gerenciada</h3>
-        <p>Redes UniFi, pfSense, OpenVPN, Wi-Fi Enterprise e servidores projetados, implantados e mantidos com documentação completa.</p>
-        <div class="chips"><span class="chip">UniFi</span><span class="chip">pfSense</span><span class="chip">WireGuard</span><span class="chip">RADIUS</span><span class="chip">Docker</span></div>
-      </div>
-      <div class="service-card">
-        <h3>Atendimento via WhatsApp</h3>
-        <p>Central de atendimento profissional com Chatwoot e Evolution API. Múltiplos agentes, histórico unificado e métricas — sem mensalidade de licença.</p>
-        <div class="chips"><span class="chip">Chatwoot</span><span class="chip">Evolution API</span><span class="chip">WhatsApp</span><span class="chip">Self-hosted</span></div>
-      </div>
-      <div class="service-card">
-        <h3>Automação com Inteligência Artificial</h3>
-        <p>Agentes de IA integrados a fluxos operacionais — triagem de chamados, atendimento automatizado e integração com Slack e WhatsApp.</p>
-        <div class="chips"><span class="chip">Claude API</span><span class="chip">OpenClaw</span><span class="chip">FastAPI</span><span class="chip">Multi-agent</span></div>
-      </div>
+    <div class="section-tag">Atuação</div>
+    <h2 class="section-title">O que resolvemos <span>na prática</span></h2>
+    <p class="section-sub">Não empurramos softwares. Entramos na sua operação, estancamos riscos e vazamentos de caixa e entregamos a estrutura documentada.</p>
+    
+    <div class="services-grid pillars-grid">
+      <!-- Pilar 1 -->
+      <article class="service-card pillar-card">
+        <span class="pillar-tag">01 / Segurança &amp; Conformidade</span>
+        <h3>Ambiente seguro e em conformidade</h3>
+        <p>Eliminamos senhas compartilhadas em planilhas, acessos esquecidos de ex-funcionários e backups que nunca foram testados. Deixamos sua rede e cofres blindados e auditáveis.</p>
+        <div class="chips tech-chips" aria-label="Tecnologias utilizadas">
+          <span class="chip tech-chip">Vaultwarden</span>
+          <span class="chip tech-chip">pfSense</span>
+          <span class="chip tech-chip">WireGuard VPN</span>
+          <span class="chip tech-chip">UniFi VLANs</span>
+        </div>
+      </article>
+
+      <!-- Pilar 2 -->
+      <article class="service-card pillar-card">
+        <span class="pillar-tag">02 / Redução de Custo</span>
+        <h3>Menos gasto, menos retrabalho</h3>
+        <p>Identificamos mensalidades ociosas e substituímos serviços caros por alternativas próprias gratuitas. Configuramos alertas que avisam antes de uma falha virar prejuízo.</p>
+        <div class="chips tech-chips" aria-label="Tecnologias utilizadas">
+          <span class="chip tech-chip">Cloudflare Pages</span>
+          <span class="chip tech-chip">Uptime Kuma</span>
+          <span class="chip tech-chip">n8n</span>
+          <span class="chip tech-chip">Nextcloud</span>
+        </div>
+      </article>
+
+      <!-- Pilar 3 -->
+      <article class="service-card pillar-card">
+        <span class="pillar-tag">03 / Produtividade</span>
+        <h3>A operação roda sem depender de você</h3>
+        <p>Tiramos o atendimento da empresa de um único celular. Centralizamos seu WhatsApp com múltiplos atendentes, triagem inteligente e histórico organizado.</p>
+        <div class="chips tech-chips" aria-label="Tecnologias utilizadas">
+          <span class="chip tech-chip">Chatwoot</span>
+          <span class="chip tech-chip">Evolution API</span>
+          <span class="chip tech-chip">Triagem IA</span>
+          <span class="chip tech-chip">Paperless-ngx</span>
+        </div>
+      </article>
     </div>
-    <div style="margin-top:2rem;text-align:center"><a href="/pt-br/servicos" class="btn-outline">Ver todos os serviços</a></div>
+
+    <!-- BLOCO CASE ZERO + VALOR ÚNICO -->
+    <div class="pillar-card" style="margin-top: 1.5rem;">
+      <span class="pillar-tag">Arquitetura Real · Case Zero</span>
+      <h3>A Dorsen roda exatamente no modelo que entregamos — sem mensalidades</h3>
+      <p style="margin-bottom: 0;">Este site, nosso e-mail corporativo e nosso monitoramento operam com custo mensal zero de licenças e hospedagem, tendo apenas o registro do domínio próprio como despesa anual. Cobramos um <strong>valor único de implementação</strong>, configuramos tudo nas suas contas e entregamos o manual completo para você ter autonomia total.</p>
+    </div>
+
+    <div style="margin-top:2rem;text-align:center">
+      <a href="/pt-br/servicos" class="btn-outline">Entender todas as entregas</a>
+    </div>
   </div>
 </section>
 
+<!-- GALERIA DE CASES (Convertida para links <a> acessíveis) -->
+<div class="banner-gallery">
+  <div class="banner-gallery-header">
+    <h2>Implementações em destaque</h2>
+    <p>Arraste ou use as setas para navegar · Clique para ver a arquitetura</p>
+  </div>
+  <div class="gallery-scroll-wrap" id="galleryWrap" tabindex="0" aria-label="Galeria de projetos">
+    <div class="gallery-track">
+      <a class="gallery-card" href="/pt-br/projetos/chatwoot" style="text-decoration:none;color:inherit">
+        <div class="gallery-card-img"><span>Chatwoot — imagem a adicionar</span></div>
+        <div class="gallery-card-body"><span class="badge">Produtividade</span><h3 style="margin-top:.5rem">Central WhatsApp para e-commerce</h3><p>De respostas manuais em um celular para central com 4 agentes e SLA de 18 minutos.</p></div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </a>
+      <a class="gallery-card" href="/pt-br/projetos/rede-vlan" style="text-decoration:none;color:inherit">
+        <div class="gallery-card-img"><span>Rede — imagem a adicionar</span></div>
+        <div class="gallery-card-body"><span class="badge">Segurança</span><h3 style="margin-top:.5rem">Rede corporativa multi-VLAN</h3><p>40 dispositivos, 6 VLANs isoladas e autenticação enterprise. Zero licenças proprietárias.</p></div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </a>
+      <a class="gallery-card" href="/pt-br/projetos/triagem-ia" style="text-decoration:none;color:inherit">
+        <div class="gallery-card-img"><span>IA — imagem a adicionar</span></div>
+        <div class="gallery-card-body"><span class="badge">Redução de Custo</span><h3 style="margin-top:.5rem">Triagem de chamados com IA</h3><p>70% dos chamados resolvidos automaticamente. Economia direta de R$4.2k/mês.</p></div>
+        <div class="gallery-card-cta"><span>Ver implementação</span><span class="arrow">↗</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
 <section style="background:var(--bg2)">
   <div class="section-inner">
-    <div class="section-tag">Projetos</div>
-    <h2 class="section-title">Implementações <span>recentes</span></h2>
-    <p class="section-sub">Clique em qualquer projeto para ver escopo, métricas e detalhes técnicos.</p>
+    <div class="section-tag">Detalhamento Técnico</div>
+    <h2 class="section-title">Arquiteturas <span>documentadas</span></h2>
+    <p class="section-sub">Clique em qualquer projeto para ver o problema encontrado, a solução aplicada e a economia gerada.</p>
     <div class="projects-list">
       <a class="project-row" href="/pt-br/projetos/chatwoot">
         <div><h3>Central WhatsApp para e-commerce</h3><p>Chatwoot + Evolution API — SLA de 18min, 4 agentes, custo zero de licença</p></div>
-        <div class="project-row-meta"><span class="badge">Atendimento</span><span class="arrow">↗</span></div>
+        <div class="project-row-meta"><span class="badge">Produtividade</span><span class="arrow">↗</span></div>
       </a>
       <a class="project-row" href="/pt-br/projetos/rede-vlan">
         <div><h3>Rede corporativa multi-VLAN</h3><p>UniFi + FreeRADIUS + WireGuard — 40 dispositivos, 6 VLANs, autenticação enterprise</p></div>
-        <div class="project-row-meta"><span class="badge">Infraestrutura</span><span class="arrow">↗</span></div>
+        <div class="project-row-meta"><span class="badge">Segurança</span><span class="arrow">↗</span></div>
       </a>
       <a class="project-row" href="/pt-br/projetos/triagem-ia">
         <div><h3>Triagem de chamados com inteligência artificial</h3><p>Claude API + GLPI — 70% de resolução automatizada, economia de R$4.2k/mês</p></div>
-        <div class="project-row-meta"><span class="badge">Automação IA</span><span class="arrow">↗</span></div>
+        <div class="project-row-meta"><span class="badge">Redução de Custo</span><span class="arrow">↗</span></div>
       </a>
     </div>
     <div style="margin-top:2rem;text-align:center"><a href="/pt-br/projetos" class="btn-outline">Ver todos os projetos</a></div>
   </div>
 </section>
 
-<script>
-const wrap = document.getElementById('galleryWrap');
-let isDown=false,startX,scrollLeft;
-wrap.addEventListener('mousedown',e=>{isDown=true;wrap.style.cursor='grabbing';startX=e.pageX-wrap.offsetLeft;scrollLeft=wrap.scrollLeft});
-wrap.addEventListener('mouseleave',()=>{isDown=false;wrap.style.cursor='grab'});
-wrap.addEventListener('mouseup',()=>{isDown=false;wrap.style.cursor='grab'});
-wrap.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-wrap.offsetLeft;wrap.scrollLeft=scrollLeft-(x-startX)*1.5});
-</script>
 <footer>
   <a class="footer-logo" href="/pt-br/">Dorsen<span>.</span></a>
   <nav>
@@ -136,5 +183,67 @@ wrap.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const
     <a href="/pt-br/contato">Contato</a>
   </nav>
   <p>© 2026 Dorsen Tech &amp; Consulting — Brasil</p>
-</footer></body>
+</footer>
+
+<script>
+  // 1. Controle do Menu Mobile
+  const menuBtn = document.getElementById('menu-btn');
+  const navList = document.getElementById('nav-list');
+
+  if (menuBtn && navList) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!isExpanded));
+      navList.classList.toggle('aberto');
+    });
+
+    navList.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        navList.classList.remove('aberto');
+      });
+    });
+  }
+
+  // 2. Micro-interação Tátil nos Cards (Spotlight + Tilt máximo de 2.5 graus no Desktop)
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!isTouchDevice && !prefersReducedMotion) {
+    document.querySelectorAll('.pillar-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+
+        const rotateY = ((x / rect.width) - 0.5) * 5;
+        const rotateX = ((y / rect.height) - 0.5) * -5;
+
+        card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  }
+
+  // 3. Galeria Drag-to-scroll + Teclado
+  const wrap = document.getElementById('galleryWrap');
+  if (wrap) {
+    let isDown = false, startX, scrollLeft;
+    wrap.addEventListener('mousedown', e => { isDown = true; wrap.style.cursor = 'grabbing'; startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft; });
+    wrap.addEventListener('mouseleave', () => { isDown = false; wrap.style.cursor = 'grab'; });
+    wrap.addEventListener('mouseup', () => { isDown = false; wrap.style.cursor = 'grab'; });
+    wrap.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - wrap.offsetLeft; wrap.scrollLeft = scrollLeft - (x - startX) * 1.5; });
+    wrap.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') wrap.scrollBy({ left: 320, behavior: 'smooth' });
+      if (e.key === 'ArrowLeft') wrap.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+  }
+</script>
+</body>
 </html>
